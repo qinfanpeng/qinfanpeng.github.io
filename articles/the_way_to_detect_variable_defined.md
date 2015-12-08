@@ -63,7 +63,7 @@
 ```
 看起来，`defined?`这货返回的是对应变量的类型，对于没定义的变量返回的是 nil。但这还是解释不了为啥`need_feature_one  = true unless defined? need_feature_one`总返回`nil`阿。
 
-若没提前定义`need_feature_one`，`need_feature_one  = true unless defined? need_feature_one`永远返回`nil`，不妨假设：在进行`defined? need_feature_one`判断时，Ruby已经为这种一行式语法定义了名为`need_feature_one`的变量，默认值为`nil`；所以在进行`defined? need_feature_one`判断时因`need_feature_one`已经定义，所以`need_feature_one  = true`一直没得到执行。下面来窥探一下其编译版本，验证一下我们的想法：
+若没提前定义`need_feature_one`，`need_feature_one  = true unless defined? need_feature_one`永远返回`nil`，不妨假设：在进行`defined? need_feature_one`判断时，Ruby已经为这种一行形式语法定义了名为`need_feature_one`的变量，默认值为`nil`；所以在进行`defined? need_feature_one`判断时因`need_feature_one`已经定义，所以`need_feature_one  = true`一直没得到执行。下面来窥探一下其编译版本，验证一下我们的想法：
 
 ```ruby
 puts RubyVM::InstructionSequence.compile("need_feature_one = true unless defined? need_feature_one").disassemble
