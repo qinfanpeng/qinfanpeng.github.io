@@ -92,7 +92,7 @@ end
 Mongoid::Criteria.include Mongoid::Batches
 ```
 
-最后对于耗时操作，还考虑引入并行计算，类似于这样：
+最后对于耗时操作，还可考虑引入并行计算，类似于这样：
 ```ruby
 Model.find_each { ... }
 
