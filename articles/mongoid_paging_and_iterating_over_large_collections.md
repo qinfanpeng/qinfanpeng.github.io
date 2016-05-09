@@ -10,11 +10,13 @@
 # @option options [ true, false ] :no_cursor_timeout The server normally times out idle cursors 
 # after an inactivity period (10 minutes) to prevent excess memory use. Set this option to prevent that.
 ```
-虽然可以这样来绕过它 `Model.all.no_timeout.each`，不过不建议这样做。另外默认的`batch_size`不一定合适你，可以这样指定`Model.all.no_timeout.batch_size(500).each`。不过 mongodb 的默认`batch_size`看起来比较复杂，得谨慎。（The MongoDB server returns the query results in batches. Batch size will not exceed the maximum BSON document size. For most queries, the first batch returns 101 documents or just enough documents to exceed 1 megabyte. Subsequent batch size is 4 megabytes. To override the default size of the batch, see batchSize() and limit().
+虽然可以这样来绕过它 `Model.all.no_timeout.each`，不过不建议这样做。另外默认的`batch_size`不一定合适你，可以这样指定`Model.all.no_timeout.batch_size(500).each`。不过 mongodb 的默认`batch_size`看起来比较复杂，得谨慎。（The MongoDB server returns the query results in batches. Batch size will not exceed the [maximum BSON](https://docs.mongodb.com/manual/reference/limits/#limit-bson-document-size) document size. For most queries, the first batch returns 101 documents or just enough documents to exceed 1 megabyte. Subsequent batch size is 4 megabytes. To override the default size of the batch, see batchSize() and limit().
 
 For queries that include a sort operation without an index, the server must load all the documents in memory to perform the sort before returning any results.
 
 As you iterate through the cursor and reach the end of the returned batch, if there are more results, cursor.next() will perform a getmore operation to retrieve the next batch. ）
+
+`Model.all.each { print '.' }` 得到类似的查询：
 
 ![mongodb_batch_size](../images/mongodb_batch_size.png)
 
