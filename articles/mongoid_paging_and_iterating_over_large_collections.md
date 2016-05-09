@@ -1,5 +1,5 @@
 ### Mongoid Paging and Iterating Over Large Collections
-算遍历数据库中的所有记录时，我们首先想到的是`Model.all.each`。但是，当数据量很大的时候（数万？），这就不怎么合适了，因为`Model.all.each`会一次性加载所有记录，并将其实例化成 Model 对象，这显然会增加内存负担，甚至耗尽内存。
+遍历数据库中的所有记录时，我们首先想到的是`Model.all.each`。但是，当数据量很大的时候（数万？），这就不怎么合适了，因为`Model.all.each`会一次性加载所有记录，并将其实例化成 Model 对象，这显然会增加内存负担，甚至耗尽内存。
 
 对于`ActiveRecord` 而言，有个`find_each`专门解决此类问题。`find_each`底层依赖于`find_in_batches`，会分批加载记录，默认每批为1000。
 
@@ -16,7 +16,7 @@ For queries that include a sort operation without an index, the server must load
 
 As you iterate through the cursor and reach the end of the returned batch, if there are more results, cursor.next() will perform a getmore operation to retrieve the next batch. ）
 
-`Model.all.each { print '.' }` 得到类似的查询：
+`Model.all.each { print '.' }` 将得到类似的查询：
 
 ![mongodb_batch_size](../images/mongodb_batch_size.png)
 
