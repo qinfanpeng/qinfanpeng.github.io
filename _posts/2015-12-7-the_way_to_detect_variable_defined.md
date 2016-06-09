@@ -1,4 +1,10 @@
-### 判断Rails partial中变量是否定义的正确姿势
+---
+layout: post
+title:  "判断Rails partial中变量是否定义的正确姿势"
+date:   2015-12-07 12:55:19 +0800
+categories: jekyll update
+---
+
 
 假设最初我们引入了一个Rails partial，内含`feature-one`:
 
@@ -191,7 +197,7 @@ need_feature_one = local_assigns.fetch(:need_feature_one) { true }
 - [《Ruby Under a Microscope》](http://book.douban.com/subject/24718740/)
 - [YARV: Instruction Table](http://www.atdot.net/yarv/insnstbl.html)
 - [How to disassemble Ruby code into RubyVM opcodes/Instruction Sequences](http://rehanjaffer.com/how-to-disassemble-ruby-code-into-rubyvm-yarv-opcodes-instruction-sequences/)
-- http://mla.n-z.jp/~w3ml/w3ml.cgi/ruby-changes/msg/20450
+- [http://mla.n-z.jp/~w3ml/w3ml.cgi/ruby-changes/msg/20450](http://mla.n-z.jp/~w3ml/w3ml.cgi/ruby-changes/msg/20450)
 
 
 

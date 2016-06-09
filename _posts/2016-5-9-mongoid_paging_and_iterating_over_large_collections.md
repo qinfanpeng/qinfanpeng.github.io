@@ -24,7 +24,7 @@ As you iterate through the cursor and reach the end of the returned batch, if th
 
 `Model.all.each { print '.' }` 将得到类似的查询：
 
-![mongodb_batch_size](images/mongodb_batch_size.png)
+![mongodb_batch_size](/images/mongodb_batch_size.png)
 
 类似的方案应是利用`skip`和`limit`，类似于这样`Model.all.skip(m).limit(n)`。很不幸的是，数据量过大时，这并不好使，因为随着 skip 值变大，会越来越慢（The cursor.skip() method is often expensive because it requires the server to walk from the beginning of the collection or index to get the offset or skip position before beginning to return results. As the offset (e.g. pageNumber above) increases, cursor.skip() will become slower and more CPU intensive. With larger collections, cursor.skip() may become IO bound.）。这让我想起了曾经看过的帖子[will_paginate 分页过多 (大概 10000 页)，点击最后几页的时候，速度明显变慢](https://ruby-china.org/topics/28659)，大致原因就是分页底层用到了`offset`，也是因为offset 越大查询就会越慢。
 
