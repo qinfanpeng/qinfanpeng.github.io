@@ -1,4 +1,9 @@
-### Inverse_of 的坑
+---
+layout: post
+title:  "Mongoid inverse_of not work as well as active_records"
+date:   2016-06-09 12:55:19 +0800
+categories: jekyll update
+---
 
 Rails 4.1以后，大多数情况下它都能自动帮我们加上`inverse_of`。大概也是由于这个原因，现在我们少有提到`inverse_of`了，但是某些情况下Rails不会自动帮我们加的，需要我们自己留意：
 
@@ -142,9 +147,11 @@ alcoholic.whiskeys.each do |whiskey|
 end
 
 ```
+
 #### 参考资料
+
 1. activerecord-4.2.5.1/lib/active_record/associations.rb
-2. https://www.viget.com/articles/exploring-the-inverse-of-option-on-rails-model-associations
+2. [Exploring the inverse of option on rails model associations](https://www.viget.com/articles/exploring-the-inverse-of-option-on-rails-model-associations)
 
 
 

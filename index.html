@@ -1,57 +1,23 @@
-<!DOCTYPE html>
-<html>
+---
+layout: default
+---
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Qinfanpeng.github.io : " />
+<div class="home">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  <h1 class="page-heading">Posts</h1>
 
-    <title>qinfanpeng's blog</title>
-  </head>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-  <body>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}" target="_blank">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-	    <header class="inner">
-	      <a id="forkme_banner" href="https://github.com/qinfanpeng">View GitHub</a>
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
-	      <h1 id="project_title">qinfanpeng's blog</h1>
-	      <h2 id="project_tagline"></h2>
-
-	    </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <ol>
-          <li>
-        		<a href="https://github.com/qinfanpeng/qinfanpeng.github.io/blob/master/articles/mongoid_inverse_of_not_work_as_well_as_active_records.md" target="_blank">Mongoid inverse of not work as well as active records</a>
-        	</li>
-
-        	<li>
-        		<a href="https://github.com/qinfanpeng/qinfanpeng.github.io/blob/master/articles/use_byebug_rubymine_to_inquisitive.md" target="_blank">  Use byebug and rubymine to inquisitive
-        		</a>
-        	</li>
-        	<li>
-        		<a href="https://github.com/qinfanpeng/qinfanpeng.github.io/blob/master/articles/the_way_to_detect_variable_defined.md" target="_blank">The way to detect variable defined in rails view</a>
-        	</li>
-        	<li>
-        		<a href="https://github.com/qinfanpeng/qinfanpeng.github.io/blob/master/articles/mongoid_paging_and_iterating_over_large_collections.md" target="_blank">Mongoid paging and iterating over large collections</a>
-        	</li>
-        </ol>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-  </body>
-</html>
+</div>
