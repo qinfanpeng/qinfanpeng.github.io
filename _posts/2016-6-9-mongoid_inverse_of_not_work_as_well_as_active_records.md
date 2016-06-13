@@ -87,7 +87,7 @@ class Tagging < ActiveRecord::Base
 end
 ```
 
-同样加`foreign_key: :my_tag_id`是为了避免Rails自动帮我们加上`reverse_of`。
+同样加`foreign_key: :my_tag_id`是为了避免Rails自动帮我们加上`inverse_of`。
 
 ```ruby
 post = Post.first
@@ -97,12 +97,12 @@ tag.save
 tag.taggings # => []
 tag.posts    # => []
 ```
-造成最后两行返回空的本质原因是没保存对应的关联的数据`tagging`。现在如果移除`foreign_key: :my_tag_id`，就相当于加上了`reverse_of: :taggings`（Rails自动加的）变成了下面这样：
+造成最后两行返回空的本质原因是没保存对应的关联的数据`tagging`。现在如果移除`foreign_key: :my_tag_id`，就相当于加上了`inverse_of: :taggings`（Rails自动加的）变成了下面这样：
 
 ```ruby
 class Tagging < ActiveRecord::Base 
-  belongs_to :tag, reverse_of: :taggings
-  belongs_to :post, reverse_of: :taggings
+  belongs_to :tag, inverse_of: :taggings
+  belongs_to :post, inverse_of: :taggings
 end
 
 post = Post.first
@@ -115,7 +115,7 @@ tag.posts    # => [post]
 说明Rails在保存关联数据时，需要知道反向的关联关系。
 
 #### Inverse_of in mongoid
-初步看起来`mongoid`中的`reverse_of`只是起到自定义关联名称的作用，并不具备上面提到的那些功效：
+初步看起来`mongoid`中的`inverse_of`只是起到自定义关联名称的作用，并不具备上面提到的那些功效：
 
 ```ruby
 class Lush

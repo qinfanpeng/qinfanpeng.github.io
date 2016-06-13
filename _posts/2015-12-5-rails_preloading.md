@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "【翻译】Rails（3&4）预加载（preload）的3种方式"
-date:   2015-12-28 12:55:19 +0800
+date:   2015-12-5 12:55:19 +0800
 categories: jekyll update
 ---
 
