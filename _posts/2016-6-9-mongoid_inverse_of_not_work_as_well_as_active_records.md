@@ -114,6 +114,34 @@ tag.posts    # => [post]
 ```
 说明Rails在保存关联数据时，需要知道反向的关联关系。
 
+#### Automatically assign associated object
+
+```ruby
+class Dungeon < ActiveRecord::Base
+  has_many :traps
+end
+
+class Trap < ActiveRecord::Base
+  belongs_to :dungeon, foreign_key: :my_dungeon_id
+
+  validates_presence_of :dungeon
+end
+
+dungeon = Dungeon.new
+trap = dungeon.traps.build
+
+trap.valid?  # => false 这是因为 trap.dungeon 是nil。
+
+# 加上inverse_of
+
+class Trap < ActiveRecord::Base
+  belongs_to :dungeon # 此时会自动加上 inverse_of: :dungeon
+  validates_presence_of :dungeon
+end
+
+trap.valid?  # => false
+```
+
 #### Inverse_of in mongoid
 初步看起来`mongoid`中的`inverse_of`只是起到自定义关联名称的作用，并不具备上面提到的那些功效：
 
