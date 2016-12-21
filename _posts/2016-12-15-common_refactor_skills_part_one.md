@@ -6,11 +6,13 @@ categories: jekyll update
 ---
 
 [slide]
+
 # Common Reactor Skills(part one)
 # 常见重构手法（一）
 ## qinfanpeng
 
 [slide]
+
 ## Agenda
 * Introduce Explaining Variable
 * Replace Temp with Query
@@ -22,6 +24,7 @@ categories: jekyll update
 * Remove Assignments to Parameters
 
 [slide]
+
 ## Agenda
 * **Introduce Explaining Variable**
 * **Replace Temp with Query**
