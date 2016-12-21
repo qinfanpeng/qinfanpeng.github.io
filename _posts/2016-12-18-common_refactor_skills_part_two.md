@@ -6,6 +6,7 @@ categories: jekyll update
 ---
 
 [slide]
+
 # Common Reactor Skills Part Two
 # 常见重构手法（二）
 ## qinfanpeng
@@ -24,6 +25,7 @@ categories: jekyll update
 
 
 [slide]
+
 ## Agenda
 * **Replace Magic number with Constant**
 * Decompose Conditional
@@ -60,6 +62,7 @@ const shipping = function (order) {
 
 
 [slide]
+
 ## Replace Magic number with Constant(用常量替换魔法数)
 
 ```javascript
@@ -84,6 +87,7 @@ var shipping = function (order) {
 [/note]
 
 [slide]
+
 ## 思考 - 放置常量的位置？
 
 * 变化频率 {:&.fadeIn}
@@ -94,6 +98,7 @@ var shipping = function (order) {
 [/note]
 
 [slide]
+
 ## 字符串字面量与魔法数的异同？
 
 ```javascript
@@ -135,6 +140,7 @@ const calculateCharge = (date, quantity) => {
 * 未能突出各个分支
 
 [slide]
+
 ## Decompose Conditional(分解条件表达式)
 ```javascript
 const calculateCharge = (date, quantity) => {
@@ -208,6 +214,7 @@ const calculatePayAmount = () => {
 * 两个分支确实属于<em>**非此即彼**</em>的关系
 
 [slide]
+
 ## Guard Clauses（卫语句）
 
 ```javascript
@@ -226,6 +233,7 @@ const calculatePayAmount = () => {
 
 
 [slide]
+
 ## 何时使才用 if-else？
 
 * 两个分支都是正常情况 {:&.zoomIn}
@@ -236,6 +244,7 @@ const calculatePayAmount = () => {
 
 
 [slide]
+
 [magic data-transition="cover-circle"]
 ## 影响选用 if-else/卫语句的因数
 ### -- 主要观察点：两个分支是否都是正常情况 
@@ -275,6 +284,7 @@ const isNotEligibleForDisability = () => {
 [/magic]
 
 [slide]
+
 [magic data-transition="cover-circle"]
 ## 影响选用 if-else/卫语句的因数
 ### -- 主要观察点：两个分支代码量是否相当 
@@ -353,6 +363,7 @@ const calculatePayAmount = () => {
 </code></pre></div>
 
 [slide]
+
 [magic data-transition="cover-circle"]
 ## 消除条件嵌套
 ```javascript
@@ -397,6 +408,7 @@ const getAdjustedCapital = () => {
 
 
 [slide]
+
 ## 使用 if-else 的注意事项
 
 * **尽量避免条件表达式嵌套** {:&.zoomIn}
@@ -421,6 +433,7 @@ const computeDisabilityAmount = () => {
 * 可以合并的条件检测
 
 [slide]
+
 ## Consolidate Conditional Expression(合并条件表达式)
 
 ```javascript
@@ -472,6 +485,7 @@ if (isSpecialDeal()) {
 
 
 [slide]
+
 ## Consolidate Duplicate Conditional Fragments (合并重复条件代码片段)
 
 ```javascript
@@ -494,6 +508,7 @@ send()
 ```
 
 [slide]
+
 ## Demo of Consolidate Duplicate Conditional Fragments 
 
 ```javascript
@@ -599,6 +614,7 @@ const findMiscreant = (people) => {
 [/magic]
 
 [slide]
+
 [magic data-transition="cover-circle"]
 
 ## Sparate Query from Modifer (将查询函数和修改函数分开)
@@ -724,6 +740,7 @@ const SearchCriteria = buildSearchCriteria(authorId, ISBN, includeSoldOut, title
 
 
 [slide]
+
 ## Thank You & QA
 
 

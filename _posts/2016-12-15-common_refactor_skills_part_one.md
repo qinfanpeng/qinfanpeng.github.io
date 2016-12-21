@@ -6,11 +6,13 @@ categories: jekyll update
 ---
 
 [slide]
+
 # Common Reactor Skills(part one)
 # 常见重构手法（一）
 ## qinfanpeng
 
 [slide]
+
 ## Agenda
 * Introduce Explaining Variable
 * Replace Temp with Query
@@ -22,6 +24,7 @@ categories: jekyll update
 * Remove Assignments to Parameters
 
 [slide]
+
 ## Agenda
 * **Introduce Explaining Variable**
 * **Replace Temp with Query**
@@ -51,6 +54,7 @@ const calculatePrice = ({ itemPrice, quantity }) => {
 * 重复
 
 [slide]
+
 ## Introduce Explaining Variable(引入解释变量)
 ```javascript
 const calculatePrice = ({ itemPrice, quantity }) => {
@@ -98,6 +102,7 @@ const calculatePrice = ({ itemPrice, quantity }) => {
 * 变量是否值回票价
 
 [slide]
+
 ## Replace Temp with Query(用查询取代临时变量)
 ```javascript
 const calculatePrice = ({ itemPrice, quantity }) => {
@@ -136,6 +141,7 @@ var shipping = function (order) {
 
 
 [slide]
+
 ## Performance concern of More Small Functions
 * 一般都不会有明显的性能差别 {:&.fadeIn}
 * 即使有细小的区别，代码可读性价值更高
@@ -154,7 +160,13 @@ const isBigDeal = (order) => {
 
 * 此处变量并没有带来更清晰的语义，反而显得冗余了 {:&.fadeIn}
 
+[note]
+* 此处变量并没有带来更清晰的语义，反而显得冗余了 {:&.fadeIn}
+[/note]
+
+
 [slide]
+
 ## Inline Temp Variable
 ```javascript
 const isBigDeal = (order) => {
@@ -184,6 +196,7 @@ console.log('area: ', temp)
 * 对同一个变量多次赋值（并且内容并无关联） ，职责不单一
 
 [slide]
+
 ## Split Temoary Variable(分解临时变量)
 ```javascript
 let temp = 2 * height * width
@@ -224,6 +237,7 @@ users.each(user => {
 
 
 [slide]
+
 ## Substitue Algorithm(替换算法)
 
 ```javascript
@@ -251,6 +265,7 @@ const activeUsers = filter(users, 'active')
 ```
 
 [slide]
+
 ## More Examples of Substitue Algorithm
 ```javascript
 const users = [
@@ -308,6 +323,7 @@ const discount = (inputVal, quantity) => {
 
 
 [slide]
+
 ## Remove Assignments to Parameters(移除对参数的赋值)
 
 ```javascript
@@ -390,6 +406,7 @@ const printDetails = function (outstanding) {
 ```
 
 [slide]
+
 ## Inline Method(内联方法)
 
 ```javascript
@@ -413,9 +430,11 @@ const getRating = () => {
 ```
 
 [slide]
+
 ## Summary
 ![refactory_flow](/images/refactory_flow.png)
 
 
 [slide]
+
 ## Thank You & QA
