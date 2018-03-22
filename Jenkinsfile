@@ -1,4 +1,4 @@
-Jenkinsfile (Scripted Pipeline)
+// Jenkinsfile (Scripted Pipeline)
 /* Requires the Docker Pipeline plugin */
 node('docker') {
     checkout scm
